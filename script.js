@@ -21,7 +21,6 @@ let number = document.getElementsByClassName('number');
 for(var i = 0; i < number.length - 1; i++) {
     let userInput = document.getElementById('user-input');
     number[i].addEventListener('click', function() {
-        console.log(number[i]);
         userInput.value = userInput.value + this.id; 
     });
 }
@@ -42,4 +41,19 @@ submitBtn.addEventListener('click', function() {
         document.getElementById('error-message').style.display = 'block';
         document.getElementById('user-input').value = '';
     }
+});
+
+//cancel button event handler 
+let cancelBtn = document.getElementById('cancel');
+cancelBtn.addEventListener('click', function() {
+    document.getElementById('pinNumber').value = '';
+    document.getElementById('user-input').value = '';
+});
+
+// backspace button event handler
+let backspaceBtn = document.getElementById('backspace');
+backspaceBtn.addEventListener('click', function(){
+    let exp = document.getElementById('user-input').value;
+    exp = exp.substr(0, exp.length -1);
+    document.getElementById('user-input').value = exp;
 });
