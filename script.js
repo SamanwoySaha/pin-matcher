@@ -16,44 +16,46 @@ function pinGenerator(){
     }
 }
 
-// number button event handler
-let number = document.getElementsByClassName('number');
-for(var i = 0; i < number.length - 1; i++) {
-    let userInput = document.getElementById('user-input');
-    number[i].addEventListener('click', function() {
-        userInput.value = userInput.value + this.id; 
-    });
+// number button event handler function
+function insertNum(num){
+    if(document.getElementById('pinNumber').value != ''){
+        document.getElementById('user-input').value = document.getElementById('user-input').value + num;
+    }
+    else {
+        alert('Press the "Generate Pin" button and generate the pin first.');
+    }
 }
 
 // submit button event handler
 let submitBtn = document.getElementById('submit');
-submitBtn.addEventListener('click', function() {
-    let pinNumber = document.getElementById('pinNumber').value;
-    let userInput = document.getElementById('user-input').value;
-    console.log(pinNumber, userInput);
-    if(pinNumber == userInput) {
-        document.getElementById('verify-message').style.display = 'block';
-        document.getElementById('error-message').style.display = 'none';
-        document.getElementById('user-input').value = '';
-    }
-    else {
-        document.getElementById('verify-message').style.display = 'none';
-        document.getElementById('error-message').style.display = 'block';
-        document.getElementById('user-input').value = '';
-    }
-});
+    submitBtn.addEventListener('click', function() {
+        if(document.getElementById('pinNumber').value != ''){
+            alert('clcik');
+            let pinNumber = document.getElementById('pinNumber').value;
+            let userInput = document.getElementById('user-input').value;
+            if(pinNumber == userInput) {
+                document.getElementById('verify-message').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('user-input').value = '';
+            }
+            else {
+                document.getElementById('verify-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('user-input').value = '';
+            }
+        }
+    });
 
-//cancel button event handler 
-let cancelBtn = document.getElementById('cancel');
-cancelBtn.addEventListener('click', function() {
+
+
+// cancel button event handler function
+function cancel() {
     document.getElementById('pinNumber').value = '';
     document.getElementById('user-input').value = '';
-});
+};
 
-// backspace button event handler
-let backspaceBtn = document.getElementById('backspace');
-backspaceBtn.addEventListener('click', function(){
+// backspace button event handler function
+function backspace(){
     let exp = document.getElementById('user-input').value;
-    exp = exp.substr(0, exp.length -1);
-    document.getElementById('user-input').value = exp;
-});
+    document.getElementById('user-input').value = exp.slice(0, exp.length -1);
+};

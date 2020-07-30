@@ -25,24 +25,24 @@
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
-                                <div class="button number" id="7">7</div>
-                                <div class="button number" id="8">8</div>
-                                <div class="button number" id="9">9</div>
+                                <div class="button number" onclick="insertNum(7)">7</div>
+                                <div class="button number" onclick="insertNum(8)">8</div>
+                                <div class="button number" onclick="insertNum(9)">9</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button number" id="4">4</div>
-                                <div class="button number" id="5">5</div>
-                                <div class="button number" id="6">6</div>
+                                <div class="button number" onclick="insertNum(4)">4</div>
+                                <div class="button number" onclick="insertNum(5)">5</div>
+                                <div class="button number" onclick="insertNum(6)">6</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button number" id="1">1</div>
-                                <div class="button number" id="2">2</div>
-                                <div class="button number" id="3">3</div>
+                                <div class="button number" onclick="insertNum(1)">1</div>
+                                <div class="button number" onclick="insertNum(2)">2</div>
+                                <div class="button number" onclick="insertNum(3)">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button" id="backspace"><</div> 
-                                <div class="button number" id="0">0</div>
-                                <div class="button" id="cancel">C</div>
+                                <div class="button" onclick="backspace()"><</div> 
+                                <div class="button number" onclick="insertNum(0)">0</div>
+                                <div class="button" onclick="cancel()">C</div>
                             </div>
                             <div>
                                 <button type="submit" id="submit" class="submit-btn">Submit</button>
