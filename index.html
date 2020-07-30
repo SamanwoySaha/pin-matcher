@@ -21,32 +21,32 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input id="user-input" class="form-control" type="text">
+                    <input id="user-input" class="form-control text-center" type="text">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
-                                <div class="button number" onclick="insertNum(7)">7</div>
-                                <div class="button number" onclick="insertNum(8)">8</div>
-                                <div class="button number" onclick="insertNum(9)">9</div>
+                                <div class="button" onclick="insertNum(7)">7</div>
+                                <div class="button" onclick="insertNum(8)">8</div>
+                                <div class="button" onclick="insertNum(9)">9</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button number" onclick="insertNum(4)">4</div>
-                                <div class="button number" onclick="insertNum(5)">5</div>
-                                <div class="button number" onclick="insertNum(6)">6</div>
+                                <div class="button" onclick="insertNum(4)">4</div>
+                                <div class="button" onclick="insertNum(5)">5</div>
+                                <div class="button" onclick="insertNum(6)">6</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button number" onclick="insertNum(1)">1</div>
-                                <div class="button number" onclick="insertNum(2)">2</div>
-                                <div class="button number" onclick="insertNum(3)">3</div>
+                                <div class="button" onclick="insertNum(1)">1</div>
+                                <div class="button" onclick="insertNum(2)">2</div>
+                                <div class="button" onclick="insertNum(3)">3</div>
                             </div>
                             <div class="calc-button-row">
                                 <div class="button" onclick="backspace()"><</div> 
-                                <div class="button number" onclick="insertNum(0)">0</div>
+                                <div class="button" onclick="insertNum(0)">0</div>
                                 <div class="button" onclick="cancel()">C</div>
                             </div>
                             <div>
                                 <button type="submit" id="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"><span id="try-count">3</span> try left</p>
                             </div>
                         </div>
                     </div>
