@@ -19,7 +19,8 @@ function pinGenerator(){
 // number button event handler function
 function insertNum(num){
     if(document.getElementById('pinNumber').value != ''){
-        document.getElementById('user-input').value = document.getElementById('user-input').value + num;
+        let inputText = document.getElementById('user-input');
+        inputText.value = inputText.value + num;
     }
     else {
         alert('Press the "Generate Pin" button and generate the pin first.');
@@ -28,25 +29,29 @@ function insertNum(num){
 
 // submit button event handler
 let submitBtn = document.getElementById('submit');
-var count = 3;
+let count = 3;
+
 submitBtn.addEventListener('click', function() {
-    var tryCount = document.getElementById('try-count');
-    if(document.getElementById('pinNumber').value != ''){
-        let pinNumber = document.getElementById('pinNumber').value;
-        let userInput = document.getElementById('user-input').value;
-        if(pinNumber == userInput) {
-            document.getElementById('verify-message').style.display = 'block';
-            document.getElementById('error-message').style.display = 'none';
+    let tryCount = document.getElementById('try-count');
+    let pinText = document.getElementById('pinNumber');
+    let userInputText = document.getElementById('user-input');
+    let pinNumber = stringToNumber('pinNumber');
+    let userInput = stringToNumber('user-input');
+
+    if(pinText.value != ''){
+        if(userInputText.value == ''){
+            alert('please enter the pin code.');
+        }
+        else if(pinNumber === userInput) {
+            displayMessage('verify-message', 'error-message');
             document.querySelector('.action-left').style.display = 'none';
             submitBtn.disabled = true;
         }
         else {
-            document.getElementById('verify-message').style.display = 'none';
-            document.getElementById('error-message').style.display = 'block';
-            document.getElementById('user-input').value = '';
-            count--;
-            tryCount.innerText = count;
-            if(count == 0){
+            displayMessage('error-message', 'verify-message');
+            userInputText.value = '';
+            tryCount.innerText = --count;
+            if(count === 0){
                 submitBtn.disabled = true;
             }
         }
@@ -56,14 +61,24 @@ submitBtn.addEventListener('click', function() {
     }
 });
 
+function stringToNumber(id){
+    let inputText = document.getElementById(id).value;
+    let inputAmount = parseInt(inputText);
+    return inputAmount;
+}
+
+function displayMessage(show, hide) {
+    document.getElementById(show).style.display = 'block';
+    document.getElementById(hide).style.display = 'none';
+}
+
 // cancel button event handler function
 function cancel() {
-    document.getElementById('pinNumber').value = '';
     document.getElementById('user-input').value = '';
 };
 
 // backspace button event handler function
 function backspace(){
-    let exp = document.getElementById('user-input').value;
-    document.getElementById('user-input').value = exp.slice(0, exp.length -1);
+    let userInput = document.getElementById('user-input').value;
+    document.getElementById('user-input').value = userInput.slice(0, userInput.length -1);
 };
