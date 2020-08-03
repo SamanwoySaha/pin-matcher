@@ -31,16 +31,19 @@ function insertNum(num){
 let submitBtn = document.getElementById('submit');
 let count = 3;
 
-submitBtn.addEventListener('click', function() {
+submitBtn.addEventListener('click', function submit() {
     let tryCount = document.getElementById('try-count');
     let pinText = document.getElementById('pinNumber');
     let userInputText = document.getElementById('user-input');
-    let pinNumber = stringToNumber('pinNumber');
-    let userInput = stringToNumber('user-input');
+    let pinNumber = parseInt(pinText.value);
+    let userInput = parseInt(userInputText.value);
 
     if(pinText.value != ''){
         if(userInputText.value == ''){
             alert('please enter the pin code.');
+        }
+        else if(userInputText.value.length != 4){
+            alert ('please enter 4 digit pin code');
         }
         else if(pinNumber === userInput) {
             displayMessage('verify-message', 'error-message');
@@ -60,12 +63,6 @@ submitBtn.addEventListener('click', function() {
         alert('Press the "Generate Pin" button and generate the pin first.');
     }
 });
-
-function stringToNumber(id){
-    let inputText = document.getElementById(id).value;
-    let inputAmount = parseInt(inputText);
-    return inputAmount;
-}
 
 function displayMessage(show, hide) {
     document.getElementById(show).style.display = 'block';
